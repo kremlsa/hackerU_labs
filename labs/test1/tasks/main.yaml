@@ -1,0 +1,5 @@
+--- 
+- name: Disable debug-shell SystemD Service
+  ansible.builtin.systemd:
+    name: debug-shell
+    enabled: no
