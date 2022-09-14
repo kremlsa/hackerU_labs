@@ -7,3 +7,6 @@ ansible -i labs/hosts all -m ping
 
 Выполнить плейбук
 ansible-playbook -i labs/hosts labs/site.yaml -D
+
+
+ansible-playbook -i labs/hosts labs/site.yaml -D --extra-vars "ansible_sudo_pass=..."
