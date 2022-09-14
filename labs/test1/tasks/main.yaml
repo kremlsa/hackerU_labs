@@ -3,3 +3,27 @@
   ansible.builtin.systemd:
     name: debug-shell
     enabled: no
+  tags:
+    - security
+
+- name: Disable Ctrl-Alt-Del Reboot Activation
+  ansible.builtin.file:
+    src: /dev/null
+    dest: /etc/systemd/system/ctrl-alt-del.target
+    state: link
+  become: true
+  become_method: sudo
+  become_user: root
+  tags:
+    - security
+
+- name: Disable Ctrl-Alt-Del Burst Action
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/system.conf
+    regexp: '^CtrlAltDelBurstAction='
+    line: CtrlAltDelBurstAction=none
+  become: true
+  become_method: sudo
+  become_user: root
+  tags:
+    - security
