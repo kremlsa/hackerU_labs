@@ -1,0 +1,6 @@
+---
+- name: test ansible
+  hosts: all
+  gather_facts: no
+  roles:
+  - test1
