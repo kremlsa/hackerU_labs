@@ -2,3 +2,7 @@
 host1 ansible_host=127.0.0.1 ansible_port=2001 ansible_user=labs ansible_ssh_private_key_file="/home/ckib/labs_private"
 
 db2 ansible_host=127.0.0.1 ansible_port=2004 ansible_user=labs ansible_ssh_private_key_file="/home/ckib/labs_private"
+
+[test1:vars]
+ansible_become_method=sudo
+ansible_become_pass='{{ my_test1_sudo_pass }}'
