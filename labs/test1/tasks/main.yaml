@@ -33,7 +33,7 @@
   tags:
     - security
 
-- name: Ensure home Directories are Created for New Users
+- name: Set password Hashing Algorithms in /etc/login.defs
   ansible.builtin.lineinfile:
     path: /etc/login.defs
     line: ENCRYPT_METHOD SHA512
