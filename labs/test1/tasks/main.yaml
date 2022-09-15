@@ -18,8 +18,26 @@
 - name: Disable Ctrl-Alt-Del Burst Action
   ansible.builtin.lineinfile:
     path: /etc/systemd/system.conf
-    regexp: '^CtrlAltDelBurstAction='
     line: CtrlAltDelBurstAction=none
+    create: yes
+  become: true
+  tags:
+    - security
+
+- name: Ensure home Directories are Created for New Users
+  ansible.builtin.lineinfile:
+    path: /etc/login.defs
+    line: CREATE_HOME yes
+    create: yes
+  become: true
+  tags:
+    - security
+
+- name: Ensure home Directories are Created for New Users
+  ansible.builtin.lineinfile:
+    path: /etc/login.defs
+    line: ENCRYPT_METHOD SHA512
+    create: yes
   become: true
   tags:
     - security
