@@ -12,8 +12,6 @@
     dest: /etc/systemd/system/ctrl-alt-del.target
     state: link
   become: true
-  become_method: sudo
-  become_user: root
   tags:
     - security
 
@@ -23,7 +21,5 @@
     regexp: '^CtrlAltDelBurstAction='
     line: CtrlAltDelBurstAction=none
   become: true
-  become_method: sudo
-  become_user: root
   tags:
     - security
