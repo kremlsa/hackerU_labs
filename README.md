@@ -2,16 +2,19 @@
 
 Скопировать в корень директории папку labs и ключи для ssh
 
-### Проверить доступность хостов
-ansible -i labs/hosts all -m ping
-
+### Создать vault для sudo пароля
+>
 ansible-vault create sudo_pass.yml
-
+>
+ввести ключ на хранилище
+>
+текст файла хранилища:
 my_test1_sudo_pass: %PASSWORD%
 
-### Выполнить плейбук
-ansible-playbook -i labs/hosts labs/site.yaml -D
+### Проверить доступность хостов
+>
+ansible -i labs/hosts all -m ping
 
-### Выполнить плейбук c паролем для root (заменить ...)
-ansible-playbook -i labs/hosts labs/site.yaml -D --extra-vars "ansible_sudo_pass=..."
+### Выполнить плейбук (ввести ключ на хранилище)
+>
 ansible-playbook -i labs/hosts labs/site.yaml -D --ask-vault-pass --extra-vars '@sudo_pass.yml'
