@@ -41,3 +41,13 @@
   become: true
   tags:
     - security
+
+- name: Set Account Expiration Following Inactivity
+  ansible.builtin.lineinfile:
+    path: /etc/default/useradd
+    regex: '.*INACTIVE=.*'
+    line: INACTIVE=35
+    create: yes
+  become: true
+  tags:
+    - security
