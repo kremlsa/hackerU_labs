@@ -14,3 +14,12 @@
   notify: Restart
   tags:
     - step_2
+
+- name: New site
+  file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+  notify: Restart
+  tags:
+    - step_3

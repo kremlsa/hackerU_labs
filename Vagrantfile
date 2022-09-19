@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
   config.vm.base_mac = nil
   config.ssh.username = "labs"
   # config.ssh.password="123123"
-  config.ssh.private_key_path = "labs_private"
+  config.ssh.private_key_path = "~/labs_private"
   config.ssh.forward_agent = true
 
 #  config.vm.synced_folder ".", "/vagrant", disabled: true

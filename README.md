@@ -6,7 +6,7 @@ https://hackmd.io/BDsbtzCeQa6IVhQIKm9T9g?view
 
 Проверить доступность хостов
 
-ansible -i labs/hosts all -m ping
+ansible -i hosts all -m ping
 
 Выполнить плейбук
 

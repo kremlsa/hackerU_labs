@@ -3,13 +3,10 @@ upstream backend {
   server 192.168.56.103:80;
 }
 
-server {
-  listen 80;
-  root /var/www/html_1;
-  index index.html;
-
-  server_name nginx-1.local;
-  location / {
-  proxy_pass http://backend;
-  }
+    server {
+      listen 80;
+      server_name nginx-1.local;
+      location / {
+        proxy_pass http://backend;
+      }
 }
