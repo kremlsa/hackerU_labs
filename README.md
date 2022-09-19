@@ -16,3 +16,9 @@ only network configuration
 
 ansible-playbook -i hosts site.yml --tags networks -D --extra-vars "ansible_sudo_pass=&PASSWORD%"
 
+
+
+https://drive.google.com/file/d/1O9jSSQamoq5NoCAyyFVCddf3MRBvbmpQ/view
+
+https://drive.google.com/file/d/184-xrJHEfCh742aS5J8kbY8TwjmFLNh4/view
+
