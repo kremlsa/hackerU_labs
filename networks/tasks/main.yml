@@ -1,1 +1,33 @@
+---
+- name: Configure balancer
+  copy:
+    src: networks/files/balancer_00-installer-config.yaml
+    dest: /etc/netplan/00-installer-config.yaml
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - netplan apply
+  when:  "'nginx-1' in inventory_hostname"
 
+- name: Configure srv1
+  copy:
+    src: networks/files/srv1_00-installer-config.yaml
+    dest: /etc/netplan/00-installer-config.yaml
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - netplan apply
+  when:  "'nginx-2' in inventory_hostname"
+
+- name: Configure balancer
+  copy:
+    src: networks/files/srv2_00-installer-config.yaml
+    dest: /etc/netplan/00-installer-config.yaml
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - netplan apply
+  when:  "'nginx-3' in inventory_hostname"
