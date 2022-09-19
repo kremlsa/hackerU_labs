@@ -1,1 +1,23 @@
+---
+- name: Balancer configuration
+  hosts: balancer
+  become: true
+  gather_facts: no
+  roles:
+  - balancer
 
+- name: Web servers configuration
+  hosts: servers
+  become: true
+  gather_facts: no
+  roles:
+  - servers 
+
+- name: Networks configuration
+  hosts: all
+  become: true
+  gather_facts: no
+  roles:
+  - networks
+  tags:
+    - networks
