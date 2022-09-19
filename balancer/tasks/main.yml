@@ -1,1 +1,16 @@
-
+---
+- name: Update packadges "{{ inventory_hostname }}"
+  apt:
+    name: nginx
+    state: "latest"
+    update_cache: yes
+  tags:
+    - step_1
+    
+- name: Set config
+  template:
+    src: balancer/vars/nginx.conf.j2
+    dest: /etc/nginx/sites-available/default
+  notify: Restart
+  tags:
+    - step_2
