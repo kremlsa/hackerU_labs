@@ -1,1 +1,49 @@
+---
+- name: Set vars
+  set_fact:
+    server_name: "0.0.0.0"
+    document_root: /var/www
+    app_root: mywebsite
 
+- name: Update packadges "{{ inventory_hostname }}"
+  apt:
+    name: nginx
+    state: "latest"
+    update_cache: yes
+  tags:
+    - step_1
+
+- name: Copy files
+  copy:
+    src: "{{ app_root }}"
+    dest: "{{document_root}}"
+    mode: preserve
+  tags:
+    - step_2
+
+
+- name: Make Greetings
+  ansible.builtin.lineinfile:
+    path: /var/www/mywebsite/index.html
+    line: <h1> Greetings from {{ inventory_hostname }} !!! </h1>
+    regex: '^.*h1'
+    create: yes
+  tags:
+    - step_3
+    
+- name: Set config
+  template:
+    src: servers/vars/nginx.conf.j2
+    dest: /etc/nginx/sites-available/default
+  notify: Restart
+  tags:
+    - step_4
+
+- name: New site
+  file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+  notify: Restart
+  tags:
+    - step_5
