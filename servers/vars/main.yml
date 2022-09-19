@@ -1,1 +1,4 @@
-
+vars:
+  server_name : "0.0.0.0"
+  document_root: /var/www
+  app_root: mywebsite
