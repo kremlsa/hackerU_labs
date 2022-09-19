@@ -1,1 +1,7 @@
-
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      addresses: [192.168.56.103/24]
+  version: 2
