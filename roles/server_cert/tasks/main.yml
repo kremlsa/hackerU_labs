@@ -2,17 +2,17 @@
 - name: Copy ssl cert
   copy:
     src: ca_cert/srv-certificate.crt
-    dest: /etc/ssl/server.crt
+    dest: /etc/nginx/sites-enabled/server.crt
 
 - name: Copy ssl cert
   copy:
     src: ca_cert/srv-certificate.key
-    dest: /etc/ssl/server.key
+    dest: /etc/nginx/sites-enabled/server.key
 
 - name: Copy ca cert
   copy:
     src: ca_cert/ca-certificate.crt
-    dest: /etc/ssl/ca.crt
+    dest: /etc/nginx/sites-enabled/ca.crt
 
 - name: Set config
   template:

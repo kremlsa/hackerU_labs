@@ -22,10 +22,19 @@
   tags:
     - networks
 
-- name: Create CA certs
+- name: Create certs
   hosts: localhost
   gather_facts: no
   roles:
   - ca
+  tags:
+    - cert
+
+- name: Install certs
+  hosts: nginx-1
+  become: true
+  gather_facts: no
+  roles:
+  - server_cert
   tags:
     - cert
