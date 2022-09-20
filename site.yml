@@ -21,3 +21,11 @@
   - networks
   tags:
     - networks
+
+- name: Create CA certs
+  hosts: localhost
+  gather_facts: no
+  roles:
+  - ca
+  tags:
+    - cert

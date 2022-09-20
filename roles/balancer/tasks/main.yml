@@ -9,7 +9,7 @@
     
 - name: Set config
   template:
-    src: balancer/vars/nginx.conf.j2
+    src: roles/balancer/vars/nginx.conf.j2
     dest: /etc/nginx/sites-available/default
   notify: Restart
   tags:

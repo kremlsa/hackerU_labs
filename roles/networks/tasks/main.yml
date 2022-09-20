@@ -1,7 +1,7 @@
 ---
 - name: Configure balancer
   copy:
-    src: networks/files/balancer_00-installer-config.yaml
+    src: roles/networks/files/balancer_00-installer-config.yaml
     dest: /etc/netplan/00-installer-config.yaml
     owner: root
     group: root
@@ -12,7 +12,7 @@
 
 - name: Configure srv1
   copy:
-    src: networks/files/srv1_00-installer-config.yaml
+    src: roles/networks/files/srv1_00-installer-config.yaml
     dest: /etc/netplan/00-installer-config.yaml
     owner: root
     group: root
@@ -21,9 +21,9 @@
     - netplan apply
   when:  "'nginx-2' in inventory_hostname"
 
-- name: Configure balancer
+- name: Configure srv2
   copy:
-    src: networks/files/srv2_00-installer-config.yaml
+    src: roles/networks/files/srv2_00-installer-config.yaml
     dest: /etc/netplan/00-installer-config.yaml
     owner: root
     group: root

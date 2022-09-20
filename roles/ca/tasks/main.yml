@@ -1,0 +1,30 @@
+---
+- name: Create CA key
+  openssl_privatekey:
+    path: ca_cert/ca.key
+    state: present
+
+- name: Create CSR for CA cert
+  openssl_csr:
+    path: ca_cert/ca-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    common_name: Ansible CA
+    use_common_name_for_san: false
+    basic_constraints:
+      - 'CA:TRUE'
+    basic_constraints_critical: yes
+    key_usage:
+      - keyCertSign
+    key_usage_critical: true
+    state: present
+  register: ca_csr
+
+- name: Create CA cert
+  openssl_certificate:
+    path: ca_cert/ca-certificate.crt
+    csr_path: ca_cert/ca-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    provider: selfsigned
+    state: present
+
+

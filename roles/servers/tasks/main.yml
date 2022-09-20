@@ -33,7 +33,7 @@
     
 - name: Set config
   template:
-    src: servers/vars/nginx.conf.j2
+    src: roles/servers/vars/nginx.conf.j2
     dest: /etc/nginx/sites-available/default
   notify: Restart
   tags:
