@@ -16,7 +16,7 @@
 
 - name: Set config
   template:
-    src: roles/balancer/vars/nginx.conf.j2
+    src: roles/server_cert/vars/nginx.conf.j2
     dest: /etc/nginx/sites-available/default
   notify: Restart
 
