@@ -2,7 +2,7 @@
 - name: Create CA key
   openssl_privatekey:
     path: ca_cert/ca.key
-    state: present
+  run_once: true
 
 - name: Create CSR for CA cert
   openssl_csr:
@@ -16,8 +16,7 @@
     key_usage:
       - keyCertSign
     key_usage_critical: true
-    state: present
-  register: ca_csr
+  run_once: true
 
 - name: Create CA cert
   openssl_certificate:
@@ -27,17 +26,25 @@
     provider: selfsigned
     state: present
 
+- name: Create srv key
+  openssl_privatekey:
+    path: ca_cert/srv-certificate.key
+  run_once: true
+
 - name: Create CSR for server cert
   openssl_csr:
     path: ca_cert/srv-certificate.pem
-    privatekey_path: ca_cert/ca.key
+    privatekey_path: ca_cert/srv-certificate.key
     common_name: nginx-1.local
     email_address: my.email@example.com
     organization_name: Private Person
     organizational_unit_name: Alter ego dept
     locality_name: Korolyov
     country_name: RU
-    state: present
+    subject_alt_name:
+      - "DNS:nginx-1.local"
+      - "IP:127.0.0.1"
+  run_once: true
 
 - name: Create srv cert
   openssl_certificate:
@@ -45,40 +52,4 @@
     csr_path: ca_cert/srv-certificate.pem
     privatekey_path: ca_cert/ca.key
     provider: selfsigned
-    state: present
-
-- name: Create CSR for client1 cert
-  openssl_csr:
-    path: ca_cert/client1-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    common_name: client1
-    email_address: client1@example.com
-    organization_name: Client1
-    organizational_unit_name: Client1
-    state: present
-
-- name: Create client1 cert
-  openssl_certificate:
-    path: ca_cert/client1-certificate.crt
-    csr_path: ca_cert/client1-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    provider: selfsigned
-    state: present
-
-- name: Create CSR for client2 cert
-  openssl_csr:
-    path: ca_cert/client2-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    common_name: client2
-    email_address: client2@example.com
-    organization_name: Client2
-    organizational_unit_name: Client2
-    state: present
-
-- name: Create client2 cert
-  openssl_certificate:
-    path: ca_cert/client2-certificate.crt
-    csr_path: ca_cert/client2-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    provider: selfsigned
-    state: present
+  run_once: true
