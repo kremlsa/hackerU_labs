@@ -28,6 +28,7 @@
 
 - name: Create srv key
   openssl_privatekey:
+    cipher:
     path: ca_cert/srv-certificate.key
   run_once: true
 
