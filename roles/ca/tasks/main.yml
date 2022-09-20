@@ -27,4 +27,22 @@
     provider: selfsigned
     state: present
 
+- name: Create CSR for server cert
+  openssl_csr:
+    path: ca_cert/srv-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    common_name: nginx-1.local
+    email_address: my.email@example.com
+    organization_name: Private Person
+    organizational_unit_name: Alter ego dept
+    locality_name: Korolyov
+    country_name: RU
+    state: present
 
+- name: Create srv cert
+  openssl_certificate:
+    path: ca_cert/srv-certificate.crt
+    csr_path: ca_cert/srv-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    provider: selfsigned
+    state: present
