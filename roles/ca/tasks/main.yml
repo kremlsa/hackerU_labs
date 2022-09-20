@@ -46,3 +46,39 @@
     privatekey_path: ca_cert/ca.key
     provider: selfsigned
     state: present
+
+- name: Create CSR for client1 cert
+  openssl_csr:
+    path: ca_cert/client1-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    common_name: client1
+    email_address: client1@example.com
+    organization_name: Client1
+    organizational_unit_name: Client1
+    state: present
+
+- name: Create client1 cert
+  openssl_certificate:
+    path: ca_cert/client1-certificate.crt
+    csr_path: ca_cert/client1-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    provider: selfsigned
+    state: present
+
+- name: Create CSR for client2 cert
+  openssl_csr:
+    path: ca_cert/client2-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    common_name: client2
+    email_address: client2@example.com
+    organization_name: Client2
+    organizational_unit_name: Client2
+    state: present
+
+- name: Create client2 cert
+  openssl_certificate:
+    path: ca_cert/client2-certificate.crt
+    csr_path: ca_cert/client2-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    provider: selfsigned
+    state: present
