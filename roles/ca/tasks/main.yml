@@ -44,12 +44,36 @@
     subject_alt_name:
       - "DNS:nginx-1.local"
       - "IP:127.0.0.1"
+      - "IP:192.168.56.101"
   run_once: true
 
 - name: Create srv cert
   openssl_certificate:
     path: ca_cert/srv-certificate.crt
     csr_path: ca_cert/srv-certificate.pem
+    privatekey_path: ca_cert/ca.key
+    provider: selfsigned
+  run_once: true
+
+- name: Create client1 key
+  openssl_privatekey:
+    path: ca_cert/client1-certificate.key
+  run_once: true
+
+- name: Create CSR for client1 cert
+  openssl_csr:
+    path: ca_cert/client1-certificate.pem
+    privatekey_path: ca_cert/client1-certificate.key
+    common_name: nginx-1.local
+    email_address: client1@example.com
+    organization_name: Client1
+    organizational_unit_name: Client1
+  run_once: true
+
+- name: Create client1 cert
+  openssl_certificate:
+    path: ca_cert/client1-certificate.crt
+    csr_path: ca_cert/client1-certificate.pem
     privatekey_path: ca_cert/ca.key
     provider: selfsigned
   run_once: true
