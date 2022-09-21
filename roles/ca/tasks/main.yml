@@ -2,7 +2,7 @@
 - name: Create CA key
   openssl_privatekey:
     path: ca_cert/ca.key
-  run_once: true
+
 
 - name: Create CSR for CA cert
   openssl_csr:

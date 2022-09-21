@@ -3,25 +3,19 @@
   copy:
     src: ca_cert/srv-certificate.crt
     dest: /etc/ssl/server.crt
-    owner: root
-    group: root
-    mode: 0600
+
 
 - name: Copy ssl cert
   copy:
     src: ca_cert/srv-certificate.key
     dest: /etc/ssl/server.key
-    owner: root
-    group: root
-    mode: 0600
+
 
 - name: Copy ca cert
   copy:
     src: ca_cert/ca-certificate.crt
     dest: /etc/ssl/ca.crt
-    owner: root
-    group: root
-    mode: 0600
+
 
 - name: Set config
   template:
