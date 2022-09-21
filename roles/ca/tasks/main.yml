@@ -63,8 +63,12 @@
     email_address: client@example.com
     organization_name: Client
     organizational_unit_name: Client
+    key_usage:
+      - digitalSignature
+      - keyEncipherment
     extended_key_usage:
       - clientAuth
+      - 1.3.6.1.5.5.7.3.8
   register: client_csr
 
 - name: Create client cert and sign

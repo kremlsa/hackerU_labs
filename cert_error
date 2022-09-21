@@ -1,0 +1,155 @@
+2022/09/21 13:58:22 [debug] 15849#15849: *21 verify:0, error:20, depth:0, subject:"/O=Client/OU=Client/CN=client/emailAddress=client@example.com", issuer:"/CN=myCA"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 verify:0, error:21, depth:0, subject:"/O=Client/OU=Client/CN=client/emailAddress=client@example.com", issuer:"/CN=myCA"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_do_handshake: 1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL: TLSv1.3, cipher: "TLS_AES_256_GCM_SHA384 TLSv1.3 Kx=any Au=any Enc=AESGCM(256) Mac=AEAD"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 init http2 connection
+2022/09/21 13:58:22 [debug] 15849#15849: *21 malloc: 000055938A25BDA0:448
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A1D1E40:4096 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 add cleanup: 000055938A25BC20
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A253D30:512 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 send SETTINGS frame
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 send WINDOW_UPDATE frame sid:0, window:2147418112
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 read handler
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: 24
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: 27
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: 13
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: 39
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: -1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_get_error: 2
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 preface verified
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame type:4 f:0 l:18 sid:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 SETTINGS frame
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 setting 3:100
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 setting 4:33554432
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 setting 2:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame complete pos:00007F559CC7A043 end:00007F559CC7A077
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame type:8 f:0 l:4 sid:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 WINDOW_UPDATE frame sid:0 window:33488897
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame complete pos:00007F559CC7A050 end:00007F559CC7A077
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame type:1 f:5 l:30 sid:1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 HEADERS frame sid:1 depends on 0 excl:0 weight:16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A254FB0:1024 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A1D2E50:4096 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A2557D0:4096 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 get indexed header: 2
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header: ":method: GET"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 get indexed header: 4
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http uri: "/"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http args: ""
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http exten: ""
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header: ":path: /"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 get indexed header: 7
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header: ":scheme: https"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 get indexed name: 1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 encoded string, len:10
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 table add: ":authority: 127.0.0.1:8443"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 malloc: 000055938A1D48B0:512
+2022/09/21 13:58:22 [debug] 15849#15849: *21 malloc: 000055938A2567E0:4096
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 table account: 56 free:4096
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header: ":authority: 127.0.0.1:8443"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 get indexed name: 58
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 encoded string, len:8
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 table add: "user-agent: curl/7.81.0"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 table account: 53 free:4040
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header: "user-agent: curl/7.81.0"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 get indexed name: 19
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 raw string, len:3
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 table add: "accept: */*"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 table account: 41 free:3987
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header: "accept: */*"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 request line: "GET / HTTP/2.0"
+2022/09/21 13:58:22 [info] 15849#15849: *21 client SSL certificate verify error: (21:unable to verify the first certificate) while reading client request headers, client: 10.0.2.2, server: nginx-1.local, request: "GET / HTTP/2.0", host: "127.0.0.1:8443"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http finalize request: 495, "/?" a:1, c:1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http special response: 495, "/?"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 xslt filter header
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 header filter
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 output header: ":status: 400"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 output header: "server: nginx/1.18.0 (Ubuntu)"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 output header: "date: Wed, 21 Sep 2022 13:58:22 GMT"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 output header: "content-type: text/html"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 output header: "content-length: 224"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2:1 create HEADERS frame 000055938A1D3D38: len:58 fin:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http cleanup add: 000055938A255FB0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame out: 000055938A1D3D38 sid:1 bl:1 len:58
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame out: 000055938A1D1FF8 sid:0 bl:0 len:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame out: 000055938A1D1F48 sid:0 bl:0 len:4
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame out: 000055938A1D1E90 sid:0 bl:0 len:18
+2022/09/21 13:58:22 [debug] 15849#15849: *21 malloc: 000055938A24DF90:16384
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 27
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 13
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 9
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 9
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 58
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL to write: 116
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_write: 116
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame sent: 000055938A1D1E90 sid:0 bl:0 len:18
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame sent: 000055938A1D1F48 sid:0 bl:0 len:4
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame sent: 000055938A1D1FF8 sid:0 bl:0 len:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2:1 HEADERS frame 000055938A1D3D38 was sent
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame sent: 000055938A1D3D38 sid:1 bl:1 len:58
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http output filter "/?"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http copy filter: "/?"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 image filter
+2022/09/21 13:58:22 [debug] 15849#15849: *21 xslt filter body
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http postpone filter "/?" 000055938A1D3E40
+2022/09/21 13:58:22 [debug] 15849#15849: *21 write new buf t:0 f:0 0000000000000000, pos 00005593890BBEA0, size: 162 file: 0, size: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 write new buf t:0 f:0 0000000000000000, pos 00005593890BCE20, size: 62 file: 0, size: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http write filter: l:1 f:0 s:224
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http write filter limit 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2:1 windows: conn:33554432 stream:33554432
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2:1 create DATA frame 000055938A1D3D38: len:224 flags:1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame out: 000055938A1D3D38 sid:1 bl:0 len:224
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 9
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 162
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL buf copy: 62
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL to write: 233
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_write: 233
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2:1 DATA frame 000055938A1D3D38 was sent
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame sent: 000055938A1D3D38 sid:1 bl:0 len:224
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http write filter 0000000000000000
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http copy filter: 0 "/?"
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http finalize request: 0, "/?" a:1, c:1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http request count:1 blk:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 close stream 1, queued 0, processing 1, pushing 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http close request
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http log handler
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A1D2E50, unused: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A2557D0, unused: 1561
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A254FB0, unused: 910
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame complete pos:00007F559CC7A077 end:00007F559CC7A077
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A1D1E40, unused: 2952
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A24DF90
+2022/09/21 13:58:22 [debug] 15849#15849: *21 reusable connection: 1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 event timer del: 13: 5915618
+2022/09/21 13:58:22 [debug] 15849#15849: *21 event timer add: 13: 180000:6035634
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 idle handler
+2022/09/21 13:58:22 [debug] 15849#15849: *21 reusable connection: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A2557D0:4096 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 read handler
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: 9
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: -1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_get_error: 2
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame type:4 f:1 l:0 sid:0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 frame complete pos:00007F559CC7A019 end:00007F559CC7A019
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A2557D0, unused: 4016
+2022/09/21 13:58:22 [debug] 15849#15849: *21 reusable connection: 1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 event timer: 13, old: 6035634, new: 6035634
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 idle handler
+2022/09/21 13:58:22 [debug] 15849#15849: *21 reusable connection: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 posix_memalign: 000055938A2557D0:4096 @16
+2022/09/21 13:58:22 [debug] 15849#15849: *21 http2 read handler
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_read: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_get_error: 6
+2022/09/21 13:58:22 [debug] 15849#15849: *21 peer shutdown SSL cleanly
+2022/09/21 13:58:22 [debug] 15849#15849: *21 close http connection: 13
+2022/09/21 13:58:22 [debug] 15849#15849: *21 SSL_shutdown: 1
+2022/09/21 13:58:22 [debug] 15849#15849: *21 event timer del: 13: 6035634
+2022/09/21 13:58:22 [debug] 15849#15849: *21 reusable connection: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 run cleanup: 000055938A25BC20
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A2557D0, unused: 4016
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 0000000000000000
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A2567E0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A1D48B0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A25BDA0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A25BAA0, unused: 0
+2022/09/21 13:58:22 [debug] 15849#15849: *21 free: 000055938A253D30, unused: 0
