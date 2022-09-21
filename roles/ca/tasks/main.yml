@@ -2,37 +2,33 @@
 - name: Create CA key
   openssl_privatekey:
     path: ca_cert/ca.key
+  register: ca_key
 
 
 - name: Create CSR for CA cert
   openssl_csr:
-    path: ca_cert/ca-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    common_name: Ansible CA
-    use_common_name_for_san: false
-    basic_constraints:
-      - 'CA:TRUE'
-    basic_constraints_critical: yes
-    key_usage:
-      - keyCertSign
-    key_usage_critical: true
+    path: ca_cert/ca.csr
+    privatekey_path: "{{ ca_key.filename }}"
+    common_name: "myCA"
+  register: ca_csr
 
 - name: Create CA cert
   openssl_certificate:
-    path: ca_cert/ca-certificate.crt
-    csr_path: ca_cert/ca-certificate.pem
-    privatekey_path: ca_cert/ca.key
+    path: ca_cert/ca.crt
+    csr_path: "{{ ca_csr.filename }}"
+    privatekey_path: "{{ ca_key.filename }}"
     provider: selfsigned
-    state: present
+  register: ca_crt
 
 - name: Create srv key
   openssl_privatekey:
-    path: ca_cert/srv-certificate.key
+    path: ca_cert/server.key
+  register: server_key
 
 - name: Create CSR for server cert
   openssl_csr:
-    path: ca_cert/srv-certificate.pem
-    privatekey_path: ca_cert/srv-certificate.key
+    path: ca_cert/server.csr
+    privatekey_path: "{{ server_key.filename }}"
     common_name: nginx-1.local
     email_address: my.email@example.com
     organization_name: Private Person
@@ -43,33 +39,13 @@
       - "DNS:nginx-1.local"
       - "IP:127.0.0.1"
       - "IP:192.168.56.101"
+  register: server_csr
 
-- name: Create srv cert
+- name: Create srv cert and sign
   openssl_certificate:
-    path: ca_cert/srv-certificate.crt
-    csr_path: ca_cert/srv-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    provider: selfsigned
-
-- name: Create client1 key
-  openssl_privatekey:
-    path: ca_cert/client1-certificate.key
-  run_once: true
-
-- name: Create CSR for client1 cert
-  openssl_csr:
-    path: ca_cert/client1-certificate.pem
-    privatekey_path: ca_cert/client1-certificate.key
-    common_name: nginx-1.local
-    email_address: client1@example.com
-    organization_name: Client1
-    organizational_unit_name: Client1
-  run_once: true
-
-- name: Create client1 cert
-  openssl_certificate:
-    path: ca_cert/client1-certificate.crt
-    csr_path: ca_cert/client1-certificate.pem
-    privatekey_path: ca_cert/ca.key
-    provider: selfsigned
-  run_once: true
+    path: ca_cert/server.crt
+    csr_path: "{{ server_csr.filename }}"
+    provider: ownca
+    ownca_path: "{{ ca_crt.filename }}"
+    ownca_privatekey_path: "{{ ca_key.filename }}"
+  register: server_crt

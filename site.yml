@@ -28,7 +28,7 @@
   roles:
   - ca
   tags:
-    - cert_create
+    - cert-create
 
 - name: Install certs
   hosts: nginx-1
