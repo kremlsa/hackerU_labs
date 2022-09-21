@@ -1,19 +1,19 @@
 ---
 - name: Copy ssl cert
   copy:
-    src: ca_cert/srv-certificate.crt
+    src: ca_cert/server.crt
     dest: /etc/ssl/server.crt
 
 
 - name: Copy ssl cert
   copy:
-    src: ca_cert/srv-certificate.key
+    src: ca_cert/server.key
     dest: /etc/ssl/server.key
 
 
 - name: Copy ca cert
   copy:
-    src: ca_cert/ca-certificate.crt
+    src: ca_cert/ca.crt
     dest: /etc/ssl/ca.crt
 
 
