@@ -1,24 +1,30 @@
 # hackerU_labs
 
+### Задание
 https://hackmd.io/BDsbtzCeQa6IVhQIKm9T9g?view
-
-Скопировать в корень директории папку labs и ключи для ssh
-
-Проверить доступность хостов
-
+>
+### Скопировать в корень директории ключи для ssh
+>
+### Проверить доступность хостов
+>
 ansible -i hosts all -m ping
-
-Выполнить плейбук
-
+>
+### Выполнить плейбук
+все задачи
+>
 ansible-playbook -i hosts site.yml -D --extra-vars "ansible_sudo_pass=&PASSWORD%"
-
-only network configuration
-
+>
+только настроить сеть
+>
 ansible-playbook -i hosts site.yml --tags networks -D --extra-vars "ansible_sudo_pass=&PASSWORD%"
+>
+генерация сертификатов
+>
+настройка аутентификации по сертификатам
 
-
-
+>
+### Vagrant Box для проекта
+>
 https://drive.google.com/file/d/1O9jSSQamoq5NoCAyyFVCddf3MRBvbmpQ/view
-
-https://drive.google.com/file/d/184-xrJHEfCh742aS5J8kbY8TwjmFLNh4/view
-
+>
+Переименовать в my при установке
