@@ -28,7 +28,6 @@
 - name: Create srv key
   openssl_privatekey:
     path: ca_cert/srv-certificate.key
-  run_once: true
 
 - name: Create CSR for server cert
   openssl_csr:
