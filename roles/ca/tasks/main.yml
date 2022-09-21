@@ -16,7 +16,6 @@
     key_usage:
       - keyCertSign
     key_usage_critical: true
-  run_once: true
 
 - name: Create CA cert
   openssl_certificate:
@@ -28,7 +27,6 @@
 
 - name: Create srv key
   openssl_privatekey:
-    cipher:
     path: ca_cert/srv-certificate.key
   run_once: true
 
@@ -46,7 +44,6 @@
       - "DNS:nginx-1.local"
       - "IP:127.0.0.1"
       - "IP:192.168.56.101"
-  run_once: true
 
 - name: Create srv cert
   openssl_certificate:
@@ -54,7 +51,6 @@
     csr_path: ca_cert/srv-certificate.pem
     privatekey_path: ca_cert/ca.key
     provider: selfsigned
-  run_once: true
 
 - name: Create client1 key
   openssl_privatekey:
