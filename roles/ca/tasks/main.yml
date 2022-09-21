@@ -49,3 +49,29 @@
     ownca_path: "{{ ca_crt.filename }}"
     ownca_privatekey_path: "{{ ca_key.filename }}"
   register: server_crt
+
+- name: Create client key
+  openssl_privatekey:
+    path: ca_cert/client.key
+  register: client_key
+
+- name: Create CSR for client cert
+  openssl_csr:
+    path: ca_cert/client.csr
+    privatekey_path: "{{ client_key.filename }}"
+    common_name: client
+    email_address: client@example.com
+    organization_name: Client
+    organizational_unit_name: Client
+    extended_key_usage:
+      - clientAuth
+  register: client_csr
+
+- name: Create client cert and sign
+  openssl_certificate:
+    path: ca_cert/client.crt
+    csr_path: "{{ client_csr.filename }}"
+    provider: ownca
+    ownca_path: "{{ ca_crt.filename }}"
+    ownca_privatekey_path: "{{ ca_key.filename }}"
+  register: client_crt
