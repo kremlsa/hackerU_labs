@@ -15,6 +15,7 @@
       ssl_certificate     /etc/ssl/server.crt;
       ssl_certificate_key /etc/ssl/server.key;
       ssl_client_certificate /etc/ssl/ca.crt;
+      ssl_protocols TLSv1.2;
       ssl_verify_client on;
       location / {
         proxy_pass http://backend;
