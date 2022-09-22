@@ -33,14 +33,14 @@ https://drive.google.com/file/d/1O9jSSQamoq5NoCAyyFVCddf3MRBvbmpQ/view
 Переименовать в my при установке
 
 
-### Check connection
+### Проверить соединение
 >
 curl --cacert ca_cert/ca.crt --cert ca_cert/client.crt --key ca_cert/client.key -L 127.0.0.1:8081
 >
 
-### Example
+### Пример
 >
-ckib@ckibvm:~/PycharmProjects/hackerU_labs$ curl --cacert ca_cert/ca.crt --cert ca_cert/client.crt --key ca_cert/client.key -L 127.0.0.1:8081
+```ckib@ckibvm:~/PycharmProjects/hackerU_labs$ curl --cacert ca_cert/ca.crt --cert ca_cert/client.crt --key ca_cert/client.key -L 127.0.0.1:8081
 <html>
 <h1> Greetings from nginx-2 !!! </h1>
-</html>
+</html>```
