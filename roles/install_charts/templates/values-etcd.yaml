@@ -1,0 +1,7 @@
+auth:
+  rbac:
+    enabled: true
+    rootPassword: azazaololo123
+persistence:
+  enabled: false
+replicaCount: 3

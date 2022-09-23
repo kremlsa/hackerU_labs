@@ -1,0 +1,49 @@
+Vagrant.configure("2") do |config|
+  config.vm.base_mac = nil
+  config.vm.synced_folder ".", "/vagrant", disabled: false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.memory = "2048"
+    vb.cpus = 2
+    vb.linked_clone = true
+  end
+
+  config.vm.define "master" do |n|
+    n.vm.provider "virtualbox" do |r|
+      r.memory = "2048"
+      r.cpus = 2
+    end
+    n.vm.box = "lab"
+    n.vm.hostname = "master"
+    n.vm.network "private_network", ip: "192.168.56.10"
+    n.vm.network "forwarded_port", guest: 80, host: 80, guest_ip: "192.168.56.10"
+  end
+
+  N = 3
+  (1..N).each do |machine_id|
+    config.vm.define "node-#{machine_id}" do |n|
+      n.vm.hostname = "node-#{machine_id}"
+      n.vm.network "private_network", ip: "192.168.56.#{20+machine_id}"
+      n.vm.box = "lab"
+
+      if machine_id == N
+        n.vm.provision :ansible do |ansible|
+          ansible.limit = "all"
+          ansible.playbook = "site.yaml"
+          ansible.groups = {
+            "kubernetes" => [ "master", "node-[1:#{N}]" ],
+            "kubernetes-master" => [ "master" ],
+
+            "all:vars" => { "kubernetes_default_interface" => "eth0",
+                            "kubernetes_base_ip" => "{{ hostvars[inventory_hostname]['ansible_'+kubernetes_default_interface]['ipv4']['address'] }}",
+                            "kubernetes_master_pod_subnet" =>  "172.16.0.0/16",
+                            "kubernetes_repo_version" =>  "1.19.7-*",
+                            "kubernetes_cni_version" =>  "0.8.*" }
+          }
+          ansible.raw_arguments = [ "-D" ]
+        end
+      end
+    end
+  end
+end
