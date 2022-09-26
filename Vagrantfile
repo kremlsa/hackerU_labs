@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
       r.memory = "2048"
       r.cpus = 2
     end
-    n.vm.box = "lab"
+    n.vm.box = "ubuntu/bionic64"
     n.vm.hostname = "master"
     n.vm.network "private_network", ip: "192.168.56.10"
     n.vm.network "forwarded_port", guest: 80, host: 80, guest_ip: "192.168.56.10"
@@ -34,8 +34,8 @@ Vagrant.configure("2") do |config|
           ansible.groups = {
             "kubernetes" => [ "master", "node-[1:#{N}]" ],
             "kubernetes-master" => [ "master" ],
-
-            "all:vars" => { "kubernetes_default_interface" => "eth0",
+            "kubernetes-node" => [ "node-[1:#{N}]" ],
+            "all:vars" => { "kubernetes_default_interface" => "eth1",
                             "kubernetes_base_ip" => "{{ hostvars[inventory_hostname]['ansible_'+kubernetes_default_interface]['ipv4']['address'] }}",
                             "kubernetes_master_pod_subnet" =>  "172.16.0.0/16",
                             "kubernetes_repo_version" =>  "1.19.7-*",
