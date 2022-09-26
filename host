@@ -7,7 +7,7 @@ node-2 ansible_host=127.0.0.1 ansible_port=2201 ansible_user=vagrant ansible_ssh
 node-3 ansible_host=127.0.0.1 ansible_port=2202 ansible_user=vagrant ansible_ssh_private_key_file=".vagrant/machines/node-3/virtualbox/private_key"
 
 [kubernetes-master:vars]
-kubernetes_default_interface=eth1
+kubernetes_default_interface=eth0
 kubernetes_base_ip=hostvars[inventory_hostname]['ansible_'+kubernetes_default_interface]['ipv4']['address'] }}
 kubernetes_master_pod_subnet=172.16.0.0/16
 kubernetes_repo_version=1.19.7-*
