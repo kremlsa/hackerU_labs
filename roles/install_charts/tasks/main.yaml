@@ -63,7 +63,7 @@
     release_namespace: vault
 #    chart_ref: hashicorp/vault
     chart_ref: "https://s828sas.storage.yandex.net/rdisk/883de96d08f756fcde70ac049d136571f25c5fedbe62603ebe9ff0b3d8b4cea5/63334044/8x_48cuVBKIlBhsWhwQfPl3sGC0cXlPOlcb7y36b52LtK7nrMJ8cRy_-0O_0QLAxf0b9yR4hZhN5EMb2XjJD0w==?uid=0&filename=vault.tgz&disposition=attachment&hash=6garVG2CUaRIVfW51GxGn1hIe0qljY3pytfK1JLC2pGLrK2JFcoEChu99UF8FjeOq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=application%2Fx-gzip&owner_uid=1645876&fsize=73273660&hid=dbb9c7854ed540b8c46dbea81bd31d1b&media_type=compressed&tknv=v2&rtoken=oU3iVBJgPOxz&force_default=no&ycrid=na-1b635d7298953c017ec0ab7c419b5747-downloader1h&ts=5e9acc75d9900&s=73039af341cc148d88fdfc753f343758f1b2734825da1b4d922032640bf9d047&pb=U2FsdGVkX1-Bepiy4wyNb9jBmSMoctlcvTm-JjqBMMwLRIYay9wxluXE2lDT-c18Gu7kKUl68GhGmvNdsw0dMUvtL0Fv5DIdXFnXJkriJss"
-#    values: "{{ lookup('template', 'values-vault.yaml') | from_yaml }}"
+    values: "{{ lookup('template', 'values-vault.yaml') | from_yaml }}"
 
 - name: Deploy jenkins
   community.kubernetes.helm:
