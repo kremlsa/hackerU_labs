@@ -21,3 +21,6 @@ node-3                     : ok=13   changed=11   unreachable=0    failed=0    s
 
 Ansible failed to complete successfully. Any error output should be
 visible above. Please fix these errors and try again.
+
+
+https://medium.com/@mitesh_shamra/setup-hashicorp-vault-using-ansible-fa8073a70a56
